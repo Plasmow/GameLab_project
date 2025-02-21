@@ -23,7 +23,7 @@ animations = [{
 "texture": ExtResource("5_utuwd")
 }],
 "loop": true,
-"name": &"Walk",
+"name": &"walk",
 "speed": 10.0
 }]
 
@@ -64,13 +64,9 @@ offset_left = 173.0
 offset_top = 221.0
 offset_right = 360.0
 offset_bottom = 270.0
-text = "ACTION
-"
 
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(458, 222.432)
-scale = Vector2(1.4, 0.928643)
 sprite_frames = SubResource("SpriteFrames_wturw")
-animation = &"Walk"
+animation = &"walk"
 
-[connection signal="pressed" from="Control/button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/button" to="Control" method="_on_button_pressed"]

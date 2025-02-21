@@ -1,40 +1,27 @@
-extends Control
+extends Control  # The UI container
 
-# Variables to hold the stats
-var strength = 54
-var intelligence = 50
-var happiness = 50
+# Declare your variables properly within the class
+var strength_label
+var intelligence_label
+var happiness_label
+var game_script
 
-# On ready, update the labels to show initial values
+# On ready, initialize the references and update stats
 func _ready():
+	# Assign the references to the UI elements
+	strength_label = $Strength
+	intelligence_label = $Intelligence
+	happiness_label = $Happiness
+	
+	# Get the parent (Node2D) and reference the game script
+	game_script = get_parent()  # Assuming the parent is Node2D, which holds the main game script
+	
+	# Update stats initially
 	update_stats()
 
 # Function to update the label text with current stats
 func update_stats():
-	$Strength.text = "Strength: " + str(strength)
-	$Intelligence.text = "Intelligence: " + str(intelligence)
-	$Happiness.text = "Happiness: " + str(happiness)
-
-# Action for the Eat Button
-func _on_EatButton_pressed():
-	strength += 10
-	happiness += 5
-	update_stats()
-
-# Action for the Sleep Button
-func _on_SleepButton_pressed():
-	intelligence += 10
-	happiness += 5
-	update_stats()
-
-# Action for the Exercise Button
-func _on_ExerciseButton_pressed():
-	strength += 15
-	happiness += 10
-	update_stats()
-
-
-func _on_button_pressed():
-	strength = 10	
-	happiness += 5
-	update_stats()
+	var stats = game_script.get_stats()  # Fetch stats from the parent (Node2D script)
+	strength_label.text = "Strength: " + str(stats["strength"])
+	intelligence_label.text = "Intelligence: " + str(stats["intelligence"])
+	happiness_label.text = "Happiness: " + str(stats["happiness"])
