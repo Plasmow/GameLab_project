@@ -1,3 +1,39 @@
-[gd_scene format=3 uid="uid://bcb71rmjvn1aa"]
+[gd_scene load_steps=2 format=3 uid="uid://bcb71rmjvn1aa"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" path="res://main_ui.gd" id="1_dremi"]
+
+[node name="MainUI" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_dremi")
+
+[node name="Strength" type="Label" parent="Control"]
+offset_left = 228.0
+offset_top = 171.0
+offset_right = 268.0
+offset_bottom = 194.0
+
+[node name="Happiness" type="Label" parent="Control"]
+offset_left = 225.0
+offset_top = 150.0
+offset_right = 265.0
+offset_bottom = 173.0
+
+[node name="Intelligence" type="Label" parent="Control"]
+offset_left = 219.0
+offset_top = 194.0
+offset_right = 259.0
+offset_bottom = 217.0
+
+[node name="Button" type="Button" parent="Control"]
+offset_left = 173.0
+offset_top = 221.0
+offset_right = 360.0
+offset_bottom = 270.0
+text = "Action"
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
