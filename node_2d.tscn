@@ -1,11 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcb71rmjvn1aa"]
+[gd_scene load_steps=11 format=3 uid="uid://bcb71rmjvn1aa"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_04p8f"]
 [ext_resource type="Script" path="res://main_ui.gd" id="1_dremi"]
 [ext_resource type="Texture2D" uid="uid://dex5iw0ck03yc" path="res://assets/images/1.png" id="2_thonu"]
 [ext_resource type="Texture2D" uid="uid://cyufyk71uk1di" path="res://assets/images/2.png" id="3_lmyjt"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="3_twslr"]
 [ext_resource type="Texture2D" uid="uid://dwmi0133hbux4" path="res://assets/images/3.png" id="4_p5iey"]
 [ext_resource type="Texture2D" uid="uid://de2bkw1h5sb71" path="res://assets/images/4.png" id="5_utuwd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_050a5"]
+size = Vector2(186, 44)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wturw"]
 animations = [{
@@ -26,6 +30,10 @@ animations = [{
 "name": &"Walk",
 "speed": 10.0
 }]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8mc6h"]
+radius = 32.0
+height = 70.0
 
 [node name="MainUI" type="Node2D"]
 script = ExtResource("1_04p8f")
@@ -67,10 +75,22 @@ offset_bottom = 270.0
 text = "ACTION
 "
 
-[node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(458, 222.432)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/button"]
+position = Vector2(95, 23)
+shape = SubResource("RectangleShape2D_050a5")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("3_twslr")
+
+[node name="CharacterSprite" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(307, 96)
 scale = Vector2(1.4, 0.928643)
 sprite_frames = SubResource("SpriteFrames_wturw")
 animation = &"Walk"
+frame_progress = 0.217349
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(287, 114)
+shape = SubResource("CapsuleShape2D_8mc6h")
 
 [connection signal="pressed" from="Control/button" to="." method="_on_button_pressed"]

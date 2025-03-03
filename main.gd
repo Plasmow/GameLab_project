@@ -25,12 +25,11 @@ func update_stats():
 	# Update the UI (Call the UI script's update_stats)
 	$Control.update_stats()  # Calling the update_stats() function of the Control node
 	
-	# Update the character's state (animations)
-	update_character_state()
+
 
 # Update the character's animation based on the stats
-func update_character_state():
-	character_sprite.play("Walk")  # Default walking animation
+#func update_character_state():
+#	character_sprite. 	
 
 
 # Handle the button press to modify stats
