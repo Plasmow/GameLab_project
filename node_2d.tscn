@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dwmi0133hbux4" path="res://assets/images/3.png" id="4_p5iey"]
 [ext_resource type="Texture2D" uid="uid://de2bkw1h5sb71" path="res://assets/images/4.png" id="5_utuwd"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_050a5"]
+size = Vector2(186, 44)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_wturw"]
 animations = [{
 "frames": [{
@@ -27,18 +30,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_050a5"]
-size = Vector2(186, 44)
-
 [node name="MainUI" type="Node2D"]
 script = ExtResource("1_04p8f")
-
-[node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(307, 96)
-scale = Vector2(1.4, 0.928643)
-sprite_frames = SubResource("SpriteFrames_wturw")
-animation = &"Walk"
-frame_progress = 0.217349
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -80,5 +73,14 @@ text = "ACTION
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/button"]
 position = Vector2(95, 23)
 shape = SubResource("RectangleShape2D_050a5")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CharacterSprite" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(307, 96)
+scale = Vector2(1.4, 0.928643)
+sprite_frames = SubResource("SpriteFrames_wturw")
+animation = &"Walk"
+frame_progress = 0.217349
 
 [connection signal="pressed" from="Control/button" to="." method="_on_button_pressed"]
