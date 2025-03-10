@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bcb71rmjvn1aa"]
+[gd_scene load_steps=9 format=3 uid="uid://bcb71rmjvn1aa"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_04p8f"]
 [ext_resource type="Script" path="res://main_ui.gd" id="1_dremi"]
@@ -7,11 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cyufyk71uk1di" path="res://assets/images/2.png" id="3_lmyjt"]
 [ext_resource type="Texture2D" uid="uid://dwmi0133hbux4" path="res://assets/images/3.png" id="4_p5iey"]
 [ext_resource type="Texture2D" uid="uid://de2bkw1h5sb71" path="res://assets/images/4.png" id="5_utuwd"]
-[ext_resource type="Texture2D" path="res://assets/images/DALL·E 2025-03-10 11.50.57 - A simple pixel-art arcade background featuring a dark, mysterious atmosphere. The scene includes subtle neon lighting, a distant city skyline, and a s.jpg" id="7_xmonr"]
-[ext_resource type="Texture2D" uid="uid://dm756y7rq2ojb" path="res://assets/images/kenney_pixel-platformer-farm-expansion/Tilemap/tilemap.png" id="8_7uphu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehrxg"]
-size = Vector2(185, 46)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wturw"]
 animations = [{
@@ -230,42 +225,10 @@ offset_bottom = 581.0
 text = "ACTION
 "
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Control/button"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/button/StaticBody2D"]
-position = Vector2(91.5, 24)
-shape = SubResource("RectangleShape2D_ehrxg")
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("3_e1yfy")
-
-[node name="CharacterSprite" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(151, 339)
-scale = Vector2(0.7325, 0.58216)
+[node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(458, 222.432)
+scale = Vector2(1.4, 0.928643)
 sprite_frames = SubResource("SpriteFrames_wturw")
 animation = &"Walk"
-frame_progress = 0.217349
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(139, 347)
-shape = SubResource("RectangleShape2D_oh45q")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(1, 0.458824, 0, 1)
-show_behind_parent = true
-offset_left = -8.0
-offset_top = -13.0
-offset_right = 825.0
-offset_bottom = 586.0
-texture = ExtResource("7_xmonr")
-expand_mode = 1
-stretch_mode = 6
-
-[node name="TileMap" type="TileMap" parent="."]
-position = Vector2(356, 159)
-tile_set = SubResource("TileSet_67gv0")
-rendering_quadrant_size = 18
-format = 2
-layer_0/tile_data = PackedInt32Array(1245163, 0, 0, 1245164, 0, 0, 1245165, 0, 0, 1245166, 0, 0, 1245167, 0, 0, 1245168, 0, 0, 1245169, 0, 0, 1245170, 0, 0, 1245171, 0, 0, 1245172, 0, 0, 1245173, 0, 0, 1245162, 0, 0, 1245174, 0, 0, 1245175, 0, 0, 1245176, 0, 0, 1245177, 0, 0, 1245178, 0, 0, 1245179, 0, 0, 1179661, 0, 0, 1179662, 0, 0, 1179663, 0, 0, 1179664, 0, 0, 1179665, 0, 0, 1179666, 0, 0, 1179667, 0, 0, 1179668, 0, 0, 1179669, 0, 0, 1179670, 0, 0, 1179671, 0, 0, 1179672, 0, 0, 1179673, 0, 0, 1179674, 0, 0, 1179675, 0, 0)
 
 [connection signal="pressed" from="Control/button" to="." method="_on_button_pressed"]
