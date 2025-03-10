@@ -6,7 +6,8 @@ var strength = 50
 var intelligence = 50
 
 # Reference to the character sprite or animated sprite
-@onready var character_sprite = $CharacterSprite  # Ensure this path is correct
+@onready var character_sprite = $CharacterBody2D/CharacterSprite
+
 
 # Get the current stats to pass to the UI
 func get_stats() -> Dictionary:
@@ -25,11 +26,13 @@ func update_stats():
 	# Update the UI (Call the UI script's update_stats)
 	$Control.update_stats()  # Calling the update_stats() function of the Control node
 	
-
+	# Update the character's state (animations)
+	update_character_state()
 
 # Update the character's animation based on the stats
-#func update_character_state():
-#	character_sprite. 	
+func update_character_state():
+	character_sprite.play("Walk")  # Default walking animation
+
 
 
 # Handle the button press to modify stats
