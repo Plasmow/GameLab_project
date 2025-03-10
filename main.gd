@@ -40,6 +40,7 @@ func _on_button_pressed():
 	# Increase stats
 	strength += 10	
 	happiness += 5
+	$CharacterBody2D.move_forward()
 	
 	# Debugging
 	print("Strength:", strength, "Happiness:", happiness)
