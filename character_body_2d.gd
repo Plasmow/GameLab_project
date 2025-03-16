@@ -1,14 +1,13 @@
 extends CharacterBody2D
 
-const GRAVITY = 980  # Gravité en pixels/s²
-const SPEED = 100  # Vitesse de déplacement
+var strength = 50  # Stat de force qui influencera la vitesse
+var speed = strength * 2  # La vitesse dépend de la force
+var gravity = 980  # Gravité appliquée au personnage
 
 func _physics_process(delta):
-	if not is_on_floor():
-		velocity.y += GRAVITY * delta  # Applique la gravité
-	move_and_slide()
+	velocity.y += gravity * delta  # Appliquer la gravité
+	move_and_slide()  # Déplacement du personnage
 
-# Fonction pour avancer le personnage
-func move_forward():
-	velocity.x = SPEED  # Applique la vitesse horizontale
-	move_and_slide()  # Appliquer le mouvement
+func update_strength(new_strength):
+	strength = new_strength
+	speed = strength * 2  # Met à jour la vitesse en fonction de la force
