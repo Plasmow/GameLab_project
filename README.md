@@ -21,13 +21,12 @@ Click on the buttons at the bottom of the screen to perform actions:
 •	🏋️ Workout – Increases strength (but drains hunger!)
 •	🎮 Play – Boosts happiness
 ________________________________________
-🧠 Special Mechanics:
-•	If Hunger reaches 0, you fall through the ground and lose.
-•	If Intelligence > 90, the character turns to face the other way.
-•	If Happiness > 90, the character might jump across joyfully.
-•	If Intelligence is high, a tree grows.
-•	If Strength is also high, the tree falls into a bridge.
-•	If Study is very high and Stamina is low, the character explodes 💥.
+🧠 Examples of special Mechanics:
+•	If Hunger reaches 0, you fall through the ground and lose (you became too heavy !)
+•	If Intelligence > 90, the character turns to face the other way (you never considered doing that, did you?)
+•	If Happiness > 90, the character might jump across joyfully :D !
+•	If Study is very high and Stamina is low, the character’s head explodes 💥.
 ________________________________________
 🏆 Win Condition:
 If you reach the far right side, you win! Different stat combinations will open different paths to victory. Experiment and find them all!
+
