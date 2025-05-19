@@ -1,0 +1,119 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2gk5j4gv4300"]
+
+[ext_resource type="Texture2D" uid="uid://dteiln1cx657x" path="res://assets/images/ChatGPT Image 6 avr. 2025, 20_10_23.png" id="2_838vq"]
+
+[sub_resource type="Animation" id="Animation_xs0ty"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tree_sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tree_sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1237, -3054)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tree_sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.04167, 7.89604)]
+}
+
+[sub_resource type="Animation" id="Animation_kl6av"]
+resource_name = "fall_tree"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tree_sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333334, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.39626]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tree_sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1237, -3054)]
+}
+
+[sub_resource type="Animation" id="Animation_qui4y"]
+resource_name = "grow_tree"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tree_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1297, -4272), Vector2(-1199, -4288)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tree_sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.04167, 1.80311), Vector2(2.04167, 7.89604)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l7v4q"]
+_data = {
+"RESET": SubResource("Animation_xs0ty"),
+"fall_tree": SubResource("Animation_kl6av"),
+"grow_tree": SubResource("Animation_qui4y")
+}
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(1812, 3260)
+
+[node name="tree_sprite" type="Sprite2D" parent="."]
+position = Vector2(-1237, -3054)
+scale = Vector2(2.04167, 7.89604)
+texture = ExtResource("2_838vq")
+offset = Vector2(0.25, 3.23)
+region_enabled = true
+region_rect = Rect2(6.42764, 12.938, 288.736, 1010.57)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l7v4q")
+}

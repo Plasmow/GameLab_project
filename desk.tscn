@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://beym4d305h2ob"]
+
+[ext_resource type="Texture2D" uid="uid://dtul114xhrdah" path="res://assets/images/StickmanPack-V0.2/StickmanPack/study sheet - Modifié.png" id="1_lqbh2"]
+[ext_resource type="AudioStream" uid="uid://bqrtm70bn6cmf" path="res://assets/audio/youtube_4vNbEGi-Oqc_audio.mp3" id="2_qahnn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osoq5"]
+atlas = ExtResource("1_lqbh2")
+region = Rect2(0, 0, 1417, 832)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q1ya"]
+atlas = ExtResource("1_lqbh2")
+region = Rect2(1417, 0, 1417, 832)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nadj2"]
+atlas = ExtResource("1_lqbh2")
+region = Rect2(2834, 0, 1417, 832)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gmq3"]
+atlas = ExtResource("1_lqbh2")
+region = Rect2(4251, 0, 1417, 832)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h67qi"]
+atlas = ExtResource("1_lqbh2")
+region = Rect2(5668, 0, 1417, 832)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfffa"]
+atlas = ExtResource("1_lqbh2")
+region = Rect2(7085, 0, 1417, 832)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w1no"]
+atlas = ExtResource("1_lqbh2")
+region = Rect2(8502, 0, 1417, 832)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ti7x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osoq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q1ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nadj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gmq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h67qi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfffa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2w1no")
+}],
+"loop": true,
+"name": &"study",
+"speed": 4.0
+}]
+
+[node name="desk" type="Node2D"]
+position = Vector2(52, 30)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(248.835, 134.25)
+scale = Vector2(0.13103, 0.114784)
+sprite_frames = SubResource("SpriteFrames_1ti7x")
+animation = &"study"
+
+[node name="sleepsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_qahnn")
+
+[node name="desk_marker" type="Marker2D" parent="."]
+position = Vector2(231, -238)
+scale = Vector2(2.365, 2.365)
+gizmo_extents = 55.0

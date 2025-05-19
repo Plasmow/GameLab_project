@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://2oi6jv12c2ks"]
+
+[ext_resource type="Texture2D" uid="uid://cs650ru6rfdpx" path="res://assets/images/StickmanPack-V0.2/StickmanPack/bed spritesheet.png" id="1_01xe7"]
+[ext_resource type="AudioStream" uid="uid://bnmptoxmwtnr6" path="res://assets/audio/sleep.mp3" id="2_7mtye"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tamxl"]
+atlas = ExtResource("1_01xe7")
+region = Rect2(0, 0, 966, 1239)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r2bk"]
+atlas = ExtResource("1_01xe7")
+region = Rect2(1932, 0, 966, 1239)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbbcg"]
+atlas = ExtResource("1_01xe7")
+region = Rect2(966, 0, 966, 1239)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avcgr"]
+atlas = ExtResource("1_01xe7")
+region = Rect2(2898, 0, 966, 1239)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2ir4"]
+atlas = ExtResource("1_01xe7")
+region = Rect2(3864, 0, 966, 1239)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ti7x"]
+animations = [{
+"frames": [{
+"duration": 0.51,
+"texture": SubResource("AtlasTexture_tamxl")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_4r2bk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbbcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avcgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2ir4")
+}],
+"loop": true,
+"name": &"sleep",
+"speed": 5.0
+}]
+
+[node name="desk" type="Node2D"]
+position = Vector2(52, 30)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(72, 249)
+scale = Vector2(0.119306, 0.0876471)
+sprite_frames = SubResource("SpriteFrames_1ti7x")
+animation = &"sleep"
+
+[node name="sleepsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_7mtye")
+
+[node name="bed_marker" type="Marker2D" parent="."]
+position = Vector2(75, -245)
+scale = Vector2(2.365, 2.365)
+gizmo_extents = 55.0
